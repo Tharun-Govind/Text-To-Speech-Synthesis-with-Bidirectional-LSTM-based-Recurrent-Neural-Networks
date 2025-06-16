@@ -1,0 +1,111 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiLSTM Text-to-Speech</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 40px; }
+        input, button { font-size: 18px; padding: 8px; margin: 10px; }
+        img { width: 80%; max-width: 600px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <h2>Text-to-Speech Conversion using BiLSTM</h2>
+    
+    <form action="/" method="POST">
+        <input type="text" name="text" placeholder="Enter text..." required>
+        <button type="submit">Convert to Speech</button>
+    </form>
+
+    <h3>Generated Spectrogram</h3>
+    <img src="{{ url_for('static', filename='mel_spectrogram.png') }}" alt="Mel Spectrogram">
+
+    <h3>Generated Audio</h3>
+    <audio controls>
+        <source src="output.wav" type="audio/wav">
+        Your browser does not support the audio tag.
+    </audio>
+
+</body>
+</html> -->
+<!-- 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech Converter</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 40px; }
+        input, button { font-size: 18px; padding: 8px; margin: 10px; }
+        audio { margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <h2>Text to Speech Converter</h2>
+    
+    <form action="/" method="POST">
+        <input type="text" name="text" placeholder="Enter text..." required>
+        <button type="submit">Convert to Speech</button>
+    </form>
+
+    {% if audio_file %}
+        <h3>Generated Audio</h3>
+        <audio controls>
+            <source src="{{ audio_file }}" type="audio/mp3">
+            Your browser does not support the audio tag.
+        </audio>
+        <br><br>
+        <a href="{{ url_for('download') }}" download>
+            <button>Download Audio</button>
+        </a>
+    {% endif %}
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech Converter</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 40px; }
+        input, button { font-size: 18px; padding: 8px; margin: 10px; }
+        audio, img { margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <h2>Text to Speech Converter</h2>
+    
+    <form action="/" method="POST">
+        <input type="text" name="text" placeholder="Enter text..." required>
+        <button type="submit">Convert to Speech</button>
+    </form>
+
+    {% if audio_file %}
+        <h3>Generated Audio</h3>
+        <audio controls>
+            <source src="{{ audio_file }}" type="audio/mp3">
+            Your browser does not support the audio tag.
+        </audio>
+        <br><br>
+        <a href="{{ url_for('download') }}" download>
+            <button>Download Audio</button>
+        </a>
+    {% endif %}
+
+    {% if mel_spectrogram_file %}
+        <h3>Mel Spectrogram</h3>
+        <img src="{{ mel_spectrogram_file }}" alt="Mel Spectrogram">
+    {% endif %}
+
+</body>
+</html>
